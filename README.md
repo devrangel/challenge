@@ -11,8 +11,8 @@ O segundo passo foi o desenvolvimento da API com o método GET. Foi utilizado o 
 Terceiro, foi feito o deploy no Heroku. O Heroku não possui suporte para aplicação .NET, mas possui suporte para o Docker. Assim, o deploy foi feito por meio de container.\
 Algumas observações precisam ser destacadas em relação ao arquivo Dockerfile.
 * É necessário criar outro **user** além do **root**.
-* O Heroku faz o mapping das portas automaticamente por meio da variável `<$PORT>`.
-* O `<ENTRYPOINT>` deve ser substituido por um `<CMD>`
+* O Heroku faz o mapping das portas automaticamente por meio da variável `$PORT`.
+* O `ENTRYPOINT` deve ser substituido por um `CMD`
 
 Exemplo:
 ```dockerfile
@@ -21,6 +21,8 @@ USER chatbotuser
 
 CMD ASPNETCORE_URLS=http://*:$PORT dotnet Api.dll
 ```
+
+Por último foi adicionado no fluxo conversacional os links para a requisição e estruturação do carousel component.
 
 # Executar localmente :
 ```
